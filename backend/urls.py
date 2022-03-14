@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from .views import UserViewSet, GroupViewSet
-from core.views import (JointDenavitViewSet, 
-                        JointScrewViewSet, 
-                        PointViewSet, 
-                        RobotViewSet, 
-                        RobotDefaultViewSet, 
-                        JointDenavitDefaultViewSet, 
-                        JointScrewDefaultViewSet, 
-                        PointDefaultViewSet)
+from core.views import (RobotViewSet, 
+                        RobotDefaultViewSet,
+                        UserCustomViewSet)
+from joint.views import (JointDenavitViewSet, 
+                         JointScrewViewSet,
+                         JointDenavitDefaultViewSet,
+                         JointScrewDefaultViewSet)
+from point.views import (PointViewSet, PointDefaultViewSet)
 from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
@@ -38,6 +38,7 @@ router.register(r'JointDenavitDefault', JointDenavitDefaultViewSet)
 router.register(r'JointScrewDefault', JointScrewDefaultViewSet)
 router.register(r'PointDefault', PointDefaultViewSet)
 router.register(r'RobotDefault', RobotDefaultViewSet)
+router.register(r'UserCustom', UserCustomViewSet)
 
 
 urlpatterns = [
