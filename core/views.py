@@ -1,10 +1,9 @@
 from msilib.schema import ServiceInstall
 from rest_framework import viewsets
 from rest_framework import permissions, authentication
-from .serializers import (RobotSerializer, 
-                          RobotDefaultSerializer, UserCustomSerializer)
-from .models import (Robot, 
-                     RobotDefault, UserCustom)
+from .serializers import (
+    RobotSerializer, Robot_UserSerializer, UserCustomSerializer)
+from .models import (Robot, Robot_User, UserCustom)
 
 
 class RobotViewSet(viewsets.ModelViewSet):
@@ -12,9 +11,9 @@ class RobotViewSet(viewsets.ModelViewSet):
     serializer_class = RobotSerializer
 
 
-class RobotDefaultViewSet(viewsets.ModelViewSet):
-    queryset = RobotDefault.objects.all()
-    serializer_class = RobotDefaultSerializer
+class Robot_UserViewSet(viewsets.ModelViewSet):
+    queryset = Robot_User.objects.all()
+    serializer_class = Robot_UserSerializer
 
 
 class UserCustomViewSet(viewsets.ModelViewSet):

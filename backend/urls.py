@@ -17,27 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from .views import UserViewSet, GroupViewSet
-from core.views import (RobotViewSet, 
-                        RobotDefaultViewSet,
-                        UserCustomViewSet)
-from joint.views import (JointDenavitViewSet, 
-                         JointScrewViewSet,
-                         JointDenavitDefaultViewSet,
-                         JointScrewDefaultViewSet)
-from point.views import (PointViewSet, PointDefaultViewSet)
+from core.views import (RobotViewSet, Robot_UserViewSet, UserCustomViewSet)
+from joint.views import (Joint_ScrewViewSet, Joint_DenavitViewSet,
+                         Joint_Screw_UserViewSet, Joint_Denavit_UserViewSet)
+from point.views import (PointViewSet, PointUserViewSet)
 from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'JointDenavit', JointDenavitViewSet)
-router.register(r'JointScrew', JointScrewViewSet)
+router.register(r'Joint_Screw', Joint_ScrewViewSet)
+router.register(r'Joint_Denavit', Joint_DenavitViewSet)
+router.register(r'Joint_Screw_User', Joint_Screw_UserViewSet)
+router.register(r'Joint_Denavit_User', Joint_Denavit_UserViewSet)
 router.register(r'Point', PointViewSet)
+router.register(r'Point_User', PointUserViewSet)
 router.register(r'Robot', RobotViewSet)
-router.register(r'JointDenavitDefault', JointDenavitDefaultViewSet)
-router.register(r'JointScrewDefault', JointScrewDefaultViewSet)
-router.register(r'PointDefault', PointDefaultViewSet)
-router.register(r'RobotDefault', RobotDefaultViewSet)
+router.register(r'Robot_User', Robot_UserViewSet)
 router.register(r'UserCustom', UserCustomViewSet)
 
 

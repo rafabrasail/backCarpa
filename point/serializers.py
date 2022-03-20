@@ -1,17 +1,16 @@
 from rest_framework import serializers
-from .models import Point, PointDefault
-
+from .models import (Point, PointUser)
 
 
 class PointSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Point
-        fields = ['url', 'robot', 'owner', 'name', 'position_x',
-                  'position_y', 'position_z', 'orientation_x', 'orientation_y', 'orientation_z']
+        fields = ['id', 'url', 'name', 'position_x', 'position_y',
+                  'position_z', 'orientation_x', 'orientation_y', 'orientation_z']
 
 
-class PointDefaultSerializer(serializers.HyperlinkedModelSerializer):
+class PointUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = PointDefault
-        fields = ['url', 'robot', 'owner', 'name', 'position_x',
-                  'position_y', 'position_z', 'orientation_x', 'orientation_y', 'orientation_z']
+        model = PointUser
+        fields = ['id', 'url', 'name', 'position_x', 'position_y',
+                  'position_z', 'orientation_x', 'orientation_y', 'orientation_z']

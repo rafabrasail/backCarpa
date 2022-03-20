@@ -1,28 +1,29 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class RobotDefault(models.Model):
+
+class Robot(models.Model):
     name = models.CharField(max_length=200)
-    jointDenavit = models.ManyToManyField(
-        'joint.JointDenavitDefault', related_name='jointDenavitDefault_robot', null=True, blank=True)
-    jointScrew = models.ManyToManyField(
-        'joint.JointScrewDefault', related_name='jointScrewDefault_robot', null=True, blank=True)
+    jointsScrew = models.ManyToManyField(
+        'joint.Joint_Screw', related_name='screw_list', blank=True)
+    jointsDenavit = models.ManyToManyField(
+        'joint.Joint_Denavit', related_name='screw_list', blank=True)
     points = models.ManyToManyField(
-        'point.PointDefault', related_name='pointDefault_robot', null=True, blank=True)
+        'point.Point', related_name='listPoints', blank=True)
 
     def __str__(self):
         return self.name
 
 
-class Robot(models.Model):
+class Robot_User(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    jointDenavit = models.ManyToManyField(
-        'joint.JointDenavit', related_name='jointDenavit_robot', null=True, blank=True)
-    jointScrew = models.ManyToManyField(
-        'joint.JointScrew', related_name='jointScrew_robot', null=True, blank=True)
+    jointsScrew = models.ManyToManyField(
+        'joint.Joint_Screw_User', related_name='screw_list', blank=True)
+    jointsDenavit = models.ManyToManyField(
+        'joint.Joint_Denavit_User', related_name='screw_list', blank=True)
     points = models.ManyToManyField(
-        'point.Point', related_name='point_robot', null=True, blank=True)
+        'point.PointUser', related_name='listPoints', blank=True)
 
     def __str__(self):
         return self.name

@@ -1,11 +1,9 @@
 from django.contrib import admin
-from .models import (JointDenavit,
-                     JointScrew,
-                     JointScrewDefault,
-                     JointDenavitDefault)
+from .models import (Joint_Screw, Joint_Denavit,
+                     Joint_Screw_User, Joint_Denavit_User)
 
 
-admin.site.register(JointDenavit)
-admin.site.register(JointScrew)
-admin.site.register(JointScrewDefault)
-admin.site.register(JointDenavitDefault)
+admin.site.register(Joint_Screw)
+admin.site.register(Joint_Denavit)
+admin.site.register(Joint_Screw_User)
+admin.site.register(Joint_Denavit_User)

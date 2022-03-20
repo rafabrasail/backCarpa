@@ -1,10 +1,8 @@
 from msilib.schema import ServiceInstall
 from rest_framework import viewsets
 from rest_framework import permissions, authentication
-from .serializers import (PointSerializer,
-                          PointDefaultSerializer)
-from .models import (Point,
-                     PointDefault)
+from .serializers import (PointSerializer, PointUserSerializer)
+from .models import (Point, PointUser)
 
 
 class PointViewSet(viewsets.ModelViewSet):
@@ -12,6 +10,6 @@ class PointViewSet(viewsets.ModelViewSet):
     serializer_class = PointSerializer
 
 
-class PointDefaultViewSet(viewsets.ModelViewSet):
-    queryset = PointDefault.objects.all()
-    serializer_class = PointDefaultSerializer
+class PointUserViewSet(viewsets.ModelViewSet):
+    queryset = PointUser.objects.all()
+    serializer_class = PointUserSerializer

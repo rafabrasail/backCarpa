@@ -1,31 +1,27 @@
 from msilib.schema import ServiceInstall
 from rest_framework import viewsets
 from rest_framework import permissions, authentication
-from .serializers import (JointDenavitSerializer,
-                          JointScrewSerializer,
-                          JointDenavitDefaultSerializer,
-                          JointScrewDefaultSerializer)
-from .models import (JointDenavit,
-                     JointScrew,
-                     JointDenavitDefault,
-                     JointScrewDefault)
+from .serializers import (Joint_ScrewSerializer, Joint_DenavitSerializer, 
+                            Joint_Screw_UserSerializer, Joint_Denavit_UserSerializer)
+from .models import (Joint_Screw, Joint_Denavit,
+                     Joint_Screw_User, Joint_Denavit_User)
 
 
-class JointDenavitViewSet(viewsets.ModelViewSet):
-    queryset = JointDenavit.objects.all()
-    serializer_class = JointDenavitSerializer
+class Joint_ScrewViewSet(viewsets.ModelViewSet):
+    queryset = Joint_Screw.objects.all()
+    serializer_class = Joint_ScrewSerializer
 
 
-class JointDenavitDefaultViewSet(viewsets.ModelViewSet):
-    queryset = JointDenavitDefault.objects.all()
-    serializer_class = JointDenavitDefaultSerializer
+class Joint_DenavitViewSet(viewsets.ModelViewSet):
+    queryset = Joint_Denavit.objects.all()
+    serializer_class = Joint_DenavitSerializer
 
 
-class JointScrewViewSet(viewsets.ModelViewSet):
-    queryset = JointScrew.objects.all()
-    serializer_class = JointScrewSerializer
+class Joint_Screw_UserViewSet(viewsets.ModelViewSet):
+    queryset = Joint_Screw_User.objects.all()
+    serializer_class = Joint_Screw_UserSerializer
 
 
-class JointScrewDefaultViewSet(viewsets.ModelViewSet):
-    queryset = JointScrewDefault.objects.all()
-    serializer_class = JointScrewDefaultSerializer
+class Joint_Denavit_UserViewSet(viewsets.ModelViewSet):
+    queryset = Joint_Denavit_User.objects.all()
+    serializer_class = Joint_Denavit_UserSerializer
