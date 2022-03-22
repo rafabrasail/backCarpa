@@ -4,10 +4,8 @@ from django.contrib.auth.models import User
 
 class Robot(models.Model):
     name = models.CharField(max_length=200)
-    jointsScrew = models.ManyToManyField(
-        'joint.Joint_Screw', related_name='screw_list', blank=True)
-    jointsDenavit = models.ManyToManyField(
-        'joint.Joint_Denavit', related_name='screw_list', blank=True)
+    joints = models.ManyToManyField(
+        'joint.Joint', related_name='joint_list', blank=True)
     points = models.ManyToManyField(
         'point.Point', related_name='listPoints', blank=True)
 
@@ -18,10 +16,8 @@ class Robot(models.Model):
 class Robot_User(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    jointsScrew = models.ManyToManyField(
-        'joint.Joint_Screw_User', related_name='screw_list', blank=True)
-    jointsDenavit = models.ManyToManyField(
-        'joint.Joint_Denavit_User', related_name='screw_list', blank=True)
+    joints = models.ManyToManyField(
+        'joint.Joint_User', related_name='joint_list', blank=True)
     points = models.ManyToManyField(
         'point.PointUser', related_name='listPoints', blank=True)
 

@@ -15,21 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework import routers
 from .views import UserViewSet, GroupViewSet
 from core.views import (RobotViewSet, Robot_UserViewSet, UserCustomViewSet)
-from joint.views import (Joint_ScrewViewSet, Joint_DenavitViewSet,
-                         Joint_Screw_UserViewSet, Joint_Denavit_UserViewSet)
+from joint.views import (JointViewSet, Joint_UserViewSet)
 from point.views import (PointViewSet, PointUserViewSet)
 from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'Joint_Screw', Joint_ScrewViewSet)
-router.register(r'Joint_Denavit', Joint_DenavitViewSet)
-router.register(r'Joint_Screw_User', Joint_Screw_UserViewSet)
-router.register(r'Joint_Denavit_User', Joint_Denavit_UserViewSet)
+router.register(r'Joint', JointViewSet)
+router.register(r'Joint_User', Joint_UserViewSet)
 router.register(r'Point', PointViewSet)
 router.register(r'Point_User', PointUserViewSet)
 router.register(r'Robot', RobotViewSet)
@@ -41,4 +40,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api/', views.obtain_auth_token, name='api-token-auth'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

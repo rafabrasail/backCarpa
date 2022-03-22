@@ -1,56 +1,30 @@
 from rest_framework import serializers
-from .models import (Joint_Screw, Joint_Denavit,
-                     Joint_Screw_User, Joint_Denavit_User)
+from .models import (Joint, Joint_User)
 
 
-class Joint_ScrewSerializer(serializers.ModelSerializer):
+class JointSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Joint_Screw
-        fields = ['id', 'url', 'name', 'type', 's_x', 's_y', 
-                  's_z', 's0_x', 's0_y', 's0_z', 't', 'theta']
+        model = Joint
+        fields = ['id', 'url', 'name', 'type', 'screw_s_x', 'screw_s_y',
+                  'screw_s_z', 'screw_s0_x', 'screw_s0_y', 'screw_s0_z', 
+                  'screw_t', 'screw_theta', 'denavit_alpha', 'denavit_a', 
+                  'denavit_d', 'denavit_theta', 'file']
 
 
-class Joint_DenavitSerializer(serializers.ModelSerializer):
+class Joint_UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Joint_Denavit
-        fields = ['id', 'url', 'name', 'type', 'alpha', 'a', 'd', 'theta']
-
-
-class Joint_Screw_UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Joint_Screw_User
-        fields = ['id', 'url', 'name', 'type', 's_x', 's_y',
-                  's_z', 's0_x', 's0_y', 's0_z', 't', 'theta']
-
-
-class Joint_Denavit_UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Joint_Denavit_User
-        fields = ['id', 'url', 'name', 'type', 'alpha', 'a', 'd', 'theta']
+        model = Joint_User
+        fields = ['id', 'url', 'name', 'type', 'screw_s_x', 'screw_s_y',
+                  'screw_s_z', 'screw_s0_x', 'screw_s0_y', 'screw_s0_z',
+                  'screw_t', 'screw_theta', 'denavit_alpha', 'denavit_a',
+                  'denavit_d', 'denavit_theta', 'file']
 
 
 
 
-# class JointDenavitSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = JointDenavit
-#         fields = '__all__'
-#         # fields = ['url', 'robot', 'name', 'alpha', 'a', 'd', 'theta']
 
 
-# class JointDenavitDefaultSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = JointDenavitDefault
-#         fields = '__all__'
-#         # fields = ['url', 'robot', 'name', 'alpha', 'a', 'd', 'theta']
 
-
-# class JointScrewSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = JointScrew
-#         fields = '__all__'
-#         # fields = ['url', 'robot ', 'name', 's_x', 's_y', 's_z',
-#                 #   's0_x', 's0_y', 's0_z', 't', 'theta']
 
 
 

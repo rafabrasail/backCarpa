@@ -6,14 +6,14 @@ class RobotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Robot
         fields = ['id', 'url', 'name', 
-                  'jointsScrew', 'jointsDenavit', 'points']
+                  'joints', 'points']
 
 
 class Robot_UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Robot_User
         fields = ['id', 'url', 'name',
-                  'jointsScrew', 'jointsDenavit', 'points']
+                  'joints', 'points']
 
 
 class UserCustomSerializer(serializers.ModelSerializer):
