@@ -7,7 +7,6 @@ class Joint(models.Model):
         ("T", 'translation'),
         ("R", 'rotation')
     )
-
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=1, choices=type_joint, default="R")
     screw_s_x = models.FloatField(default=0.0)
